@@ -1,0 +1,310 @@
+[
+  {
+    "id": 1,
+    "name": "AUTO",
+    "date": "today",
+    "cycle": "",
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/auto_blend/output_tmp.XXX.MMDD.264.grid"
+  },
+  {
+    "id": 2,
+    "name": "AUTO",
+    "date": "yesterday",
+    "cycle": "",
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/auto_blend/output_tmp.XXX.NNEE.264.grid"
+  },
+  {
+    "id": 3,
+    "name": "CANM",
+    "date": "today",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/CANM/00/zXXX_d+11canm.00.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 4,
+    "name": "CANM",
+    "date": "today",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/CANM/12/zXXX_d+11canm.12.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 5,
+    "name": "CANM",
+    "date": "yesterday",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/CANM/00/zXXX_d+11canm.00.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 6,
+    "name": "CANM",
+    "date": "yesterday",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/CANM/12/zXXX_d+11canm.12.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 7,
+    "name": "ECM",
+    "date": "today",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/ECM/00/zXXX_d+11ecm.00.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 8,
+    "name": "ECM",
+    "date": "today",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/ECM/12/zXXX_d+11ecm.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 9,
+    "name": "ECM",
+    "date": "yesterday",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/ECM/00/zXXX_d+11ecm.00.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 10,
+    "name": "ECM",
+    "date": "yesterday",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/ECM/12/zXXX_d+11ecm.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 11,
+    "name": "ECMENS",
+    "date": "today",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/ECMENSM/00/zXXX_d+11ecmm.00.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 12,
+    "name": "ECMENS",
+    "date": "today",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/ECMENSM/12/zXXX_d+11ecmm.12.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 13,
+    "name": "ECMENS",
+    "date": "yesterday",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/ECMENSM/00/zXXX_d+11ecmm.00.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 14,
+    "name": "ECMENS",
+    "date": "yesterday",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/ECMENSM/12/zXXX_d+11ecmm.12.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 15,
+    "name": "GDAS",
+    "date": "today",
+    "cycle": "",
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/GDAS/zXXX_d+11gdas.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 16,
+    "name": "GDAS",
+    "date": "yesterday",
+    "cycle": "",
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/GDAS/zXXX_d+11gdas.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 17,
+    "name": "GFS",
+    "date": "today",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/GFS/00/zXXX_d+11gfs.00.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 18,
+    "name": "GFS",
+    "date": "yesterday",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/GFS/00/zXXX_d+11gfs.00.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 19,
+    "name": "GFS",
+    "date": "today",
+    "cycle": 6,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/GFS/06/zXXX_d+11gfs.06.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 20,
+    "name": "GFS",
+    "date": "today",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/GFS/12/zXXX_d+11gfs.12.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 21,
+    "name": "GFS",
+    "date": "today",
+    "cycle": 18,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/GFS/18/zXXX_d+11gfs.18.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 22,
+    "name": "GFS",
+    "date": "yesterday",
+    "cycle": 6,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/GFS/06/zXXX_d+11gfs.06.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 23,
+    "name": "GFS",
+    "date": "yesterday",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/GFS/12/zXXX_d+11gfs.12.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 24,
+    "name": "GFS",
+    "date": "yesterday",
+    "cycle": 18,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/GFS/18/zXXX_d+11gfs.18.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 25,
+    "name": "GFSENS",
+    "date": "today",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/GFSENSM/00/zXXX_d+11ensm.00.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 26,
+    "name": "GFSENS",
+    "date": "today",
+    "cycle": 6,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/GFSENSM/06/zXXX_d+11ensm.06.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 27,
+    "name": "GFSENS",
+    "date": "today",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/GFSENSM/12/zXXX_d+11ensm.12.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 28,
+    "name": "GFSENS",
+    "date": "today",
+    "cycle": 18,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/GFSENSM/18/zXXX_d+11ensm.18.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 29,
+    "name": "GFSENS",
+    "date": "today",
+    "cycle": "AL",
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/GFSENSM/al/zXXX_d+11ensm.al.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 30,
+    "name": "GFSENS",
+    "date": "yesterday",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/GFSENSM/00/zXXX_d+11ensm.00.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 31,
+    "name": "GFSENS",
+    "date": "yesterday",
+    "cycle": 6,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/GFSENSM/06/zXXX_d+11ensm.06.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 32,
+    "name": "GFSENS",
+    "date": "yesterday",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/GFSENSM/12/zXXX_d+11ensm.12.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 33,
+    "name": "GFSENS",
+    "date": "yesterday",
+    "cycle": 18,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/GFSENSM/18/zXXX_d+11ensm.18.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 34,
+    "name": "GFSENS",
+    "date": "yesterday",
+    "cycle": "AL",
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/GFSENSM/al/zXXX_d+11ensm.al.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 35,
+    "name": "NAEFS",
+    "date": "today",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/NAEFS/00/zXXX_d+11naef.00.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 36,
+    "name": "NAEFS",
+    "date": "today",
+    "cycle": 6,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/NAEFS/06/zXXX_d+11naef.06.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 37,
+    "name": "NAEFS",
+    "date": "today",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/NAEFS/12/zXXX_d+11naef.12.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 38,
+    "name": "NAEFS",
+    "date": "today",
+    "cycle": 18,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/NAEFS/18/zXXX_d+11naef.18.145x37.YYYYMMDD.grid"
+  },
+  {
+    "id": 39,
+    "name": "NAEFS",
+    "date": "yesterday",
+    "cycle": 0,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/NAEFS/00/zXXX_d+11naef.00.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 40,
+    "name": "NAEFS",
+    "date": "yesterday",
+    "cycle": 6,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/NAEFS/06/zXXX_d+11naef.06.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 41,
+    "name": "NAEFS",
+    "date": "yesterday",
+    "cycle": 12,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/NAEFS/12/zXXX_d+11naef.12.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 42,
+    "name": "NAEFS",
+    "date": "yesterday",
+    "cycle": 18,
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/NAEFS/18/zXXX_d+11naef.18.145x37.ZZZZNNEE.grid"
+  },
+  {
+    "id": 43,
+    "name": "OFF",
+    "date": "today",
+    "cycle": "",
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/YYYY/MM/DD/models/man_blend/output_tmp.XXX.MMDD.264.grid"
+  },
+  {
+    "id": 44,
+    "name": "OFF",
+    "date": "yesterday",
+    "cycle": "",
+    "file_naming_convention": "$DATA_IN/cpcfcst/short_range/archives/ZZZZ/NN/EE/models/man_blend/output_tmp.XXX.NNEE.264.grid"
+  }
+]

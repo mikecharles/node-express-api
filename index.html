@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>ERF Manual Blend - 6-10day</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css"><!-- Load our CSS styles -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><!-- Load jQuery from Google's library -->
+    <script type="text/javascript" src="client.js"></script>
+	<script src="js/jquery.blockUI.js"></script><!-- Load jQuery plugin BlockUI -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'><!-- Load Google Fonts -->
+	<script type="text/javascript" src="js/Main.js"></script>
+	<script>
+		$(document).ready(function(){
+            alert(App.test());
+			//--------------------------------------------------------------------------------------
+			// unblock when ajax activity stops
+			//
+			$(document).ajaxStop($.unblockUI);
+
+			//--------------------------------------------------------------------------------------
+			// Clear all weights by default
+			//
+			Main.clear_weights(false);
+
+			//--------------------------------------------------------------------------------------
+			// Highlight the select lead time in the lead table
+			//
+			$('#table_leads td').removeClass("active");
+			$('#table_leads td:contains(6-10day)').addClass("active");
+			
+			//--------------------------------------------------------------------------------------
+			// Monitor for changes to the weights table. If any weight is changed, re-disable the
+			// "Create Blend" button so there's no confusion about whether the blend is created with
+			// what the user sees in the results section, or what weights the user sees.
+			//
+			$('#table_weights :input').change(function() {
+				$('#action_create_blend').attr('disabled',true);
+			});
+
+			//--------------------------------------------------------------------------------------
+			// Setup action buttons
+			//
+			// Clear Weights
+			$('#action_clear_weights').click(function(){
+				Main.clear_weights();
+				$('#action_create_blend').attr('disabled',true);
+			});
+			// Preview Blend
+			$('#action_preview_blend').on('click', function() {
+				// Make sure weights add up to 100, are all numbers, no symbols/characters, etc.
+				if (Main.check_for_any_weights()) // Only do this if at least one weight was provided
+				{
+					var results = Main.validate_weights();
+					if (results.status)
+					{
+						// Set the hidden <input> field for lead time
+						$('#form input[name=lead]').val('6-10day');
+						// Block user interaction with the form
+						$.blockUI({
+							css:
+							{
+								border: 'none',
+								padding: '15px',
+								backgroundColor: '#000',
+								opacity: .9,
+								color: '#fff',
+								fadeIn: 0,
+								fadeOut: 0,
+							},
+							message: '<span style="font-size:1.5em; font-weight:bold">Processing, please wait...</span>',
+						});
+						// Make the preview
+						$.ajax({
+							url: 'inc/make_preview.php',
+							type: 'post',
+							data: $('#form').serialize()
+						}).done(function(){ // Reveal the preview images in the results section
+							// Show the preview <div>
+							$('#section_preview div').show();
+							// Reload the <img> tags
+							$('#section_preview div img').each(function(){
+								$(this).attr('src', $(this).attr('src')+'?'+Math.random());
+							});
+							$('html, body').scrollTop($(document).height());
+							// Enable the "Create Blend" button
+							$('#action_create_blend').attr('disabled',false);
+						});
+					}
+					else
+					{
+						alert(results.message);
+						return false;
+					}
+				}
+				else
+				{
+					alert('No weights were provided');
+					return false;
+				}
+
+			});
+			// Create Blend
+			$('#action_create_blend').on('click', function() {
+				Main.create_blend();
+			});
+			
+			//--------------------------------------------------------------------------------------
+			// Styles
+			//
+			// Make table cells containing disabled inputs darker grey
+			$('#table_weights :input[disabled=disabled]').css({'background-color' : '#AAA' , 'border' : 'none'});
+			$('#table_weights :input[disabled=disabled]').closest('td').css({'background-color' : '#AAA'});
+		});
+	</script>
+</head>
+<body>
+
+<!-- Visible page container -->
+	<div id="page">
+	<!-- Leads Section -->
+	<section id="section_leads">
+		<h2>Choose Lead</h2>
+		<table id="table_leads">
+			<tr>
+				<!-- Print the leads to select from -->
+				<td><a href='/man_blend/index.php?lead=6-10day'>6-10day</a></td><td><a href='/man_blend/index.php?lead=8-14day'>8-14day</a></td>			</tr>
+		</table>
+	</section>
+
+	<!-- Weights Section -->
+	<form id="form">
+	<input type='hidden' name='lead' value='6-10day' />
+	<section id="section_weights">
+		<h2>Choose Weights</h2>
+        <form>
+            <table id="table_weights" style="background-color: #AAAAFF">
+                <tr>
+                    <td></td>
+                    <th colspan=5>Today</th>
+                    <th colspan=5>Yesterday</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>00z</td>
+                    <td>06z</td>
+                    <td>12z</td>
+                    <td>18z</td>
+                    <td>al</td>
+                    <td>00z</td>
+                    <td>06z</td>
+                    <td>12z</td>
+                    <td>18z</td>
+                    <td>al</td>
+                </tr>
+                <tr>
+                    <th>GFSENS</th>
+                    <td><input type='text' data-model-id='25' size='6'></input></td>
+                    <td><input type='text' data-model-id='26' size='6'></input></td>
+                    <td><input type='text' data-model-id='27' size='6'></input></td>
+                    <td><input type='text' data-model-id='28' size='6'></input>
+                    <td><input type='text' data-model-id='29' size='6'></input></td>
+                    <td><input type='text' data-model-id='30' size='6'></input></td>
+                    <td><input type='text' data-model-id='31' size='6'></input></td>
+                    <td><input type='text' data-model-id='32' size='6'></input></td>
+                    <td><input type='text' data-model-id='33' size='6'></input></td>
+                    <td><input type='text' data-model-id='34' size='6'></input></td>
+                </tr>
+                <tr>
+                    <th>GFS</th>
+                    <td><input type='text' data-model-id='17' size='6'></input></td>
+                    <td><input type='text' data-model-id='18' size='6'></input></td>
+                    <td><input type='text' data-model-id='19' size='6'></input></td>
+                    <td><input type='text' data-model-id='20' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='21' size='6'></input></td>
+                    <td><input type='text' data-model-id='22' size='6'></input></td>
+                    <td><input type='text' data-model-id='23' size='6'></input></td>
+                    <td><input type='text' data-model-id='24' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                </tr>
+                <tr>
+                    <th>ECMENS</th>
+                    <td><input type='text' data-model-id='11' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='12' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='13' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='14' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                </tr>
+                <tr>
+                    <th>ECM</th>
+                    <td><input type='text' data-model-id='7' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='8' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='9' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='10' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                </tr>
+                <tr>
+                    <th>CANM</th>
+                    <td><input type='text' data-model-id='3' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='4' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='5' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='6' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                    <td><input type='text' data-model-id='0' size='6'></input></td>
+                </tr>
+            </table>
+        </form>
+		<!-- Get array of model info -->
+		<!--<form><table id='table_weights'><tr><td></td><th colspan=5>Today</th><th colspan=5>Yesterday</th></tr><tr><td></td><td>00z</td><td>06z</td><td>12z</td><td>18z</td><td>al</td><td>00z</td><td>06z</td><td>12z</td><td>18z</td><td>al</td></tr><tr><th>GFSENS</th><td><input type='text' name='weight_25' size='6' ></input></td><td><input type='text' name='weight_26' size='6' ></input></td><td><input type='text' name='weight_27' size='6' disabled></input></td><td><input type='text' name='weight_28' size='6' disabled></input></td><td><input type='text' name='weight_29' size='6' ></input></td><td><input type='text' name='weight_30' size='6' ></input></td><td><input type='text' name='weight_31' size='6' ></input></td><td><input type='text' name='weight_32' size='6' ></input></td><td><input type='text' name='weight_33' size='6' ></input></td><td><input type='text' name='weight_34' size='6' ></input></td></tr><tr><th>GFS</th><td><input type='text' name='weight_17' size='6' ></input></td><td><input type='text' name='weight_18' size='6' ></input></td><td><input type='text' name='weight_19' size='6' disabled></input></td><td><input type='text' name='weight_20' size='6' disabled></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_21' size='6' ></input></td><td><input type='text' name='weight_22' size='6' ></input></td><td><input type='text' name='weight_23' size='6' ></input></td><td><input type='text' name='weight_24' size='6' ></input></td><td><input type='text' name='weight_' size='6' disabled></input></td></tr><tr><th>ECMENS</th><td><input type='text' name='weight_11' size='6' ></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_12' size='6' disabled></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_13' size='6' ></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_14' size='6' ></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_' size='6' disabled></input></td></tr><tr><th>ECM</th><td><input type='text' name='weight_7' size='6' ></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_8' size='6' disabled></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_9' size='6' ></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_10' size='6' ></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_' size='6' disabled></input></td></tr><tr><th>CANM</th><td><input type='text' name='weight_3' size='6' ></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_4' size='6' disabled></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_5' size='6' ></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_6' size='6' ></input></td><td><input type='text' name='weight_' size='6' disabled></input></td><td><input type='text' name='weight_' size='6' disabled></input></td></tr></table>-->
+<!--</form></section>-->
+    </section>
+
+	<!-- Actions Section -->
+	<section id="section_actions">
+		<h2>Actions</h2>
+		<div class="container_center">
+			<button id="action_load_weights" disabled="disabled">Load Weights</button>
+			<button id="action_clear_weights">Clear Weights</button>
+			<button id="action_preview_blend">Preview Blend</button>
+			<button id="action_create_blend" autocomplete="off" disabled="disabled">Create Blend</button>
+		</div>
+	</section>
+	</form>
+
+	<!-- Results Section -->
+	<section id="section_preview">
+		<h2>Results</h2>
+		<div style="display:none">
+			<img src="img/temp/500mb_heights.gif" alt="500mb heights" /><img src="img/temp/500mb_height_anomalies.gif" alt="500mb height anomalies" />
+		</div>
+	</section>
+</div><!-- Visible page container -->
+</body>
+</html>
